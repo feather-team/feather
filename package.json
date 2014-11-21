@@ -18,7 +18,8 @@
     },
     "keyword": [
         "feather",
-        "frontend"
+        "frontend",
+        "industrialized framework"
     ],
     "dependencies": {
         "fis": "^1.7.14",
