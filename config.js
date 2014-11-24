@@ -82,7 +82,7 @@ feather.config.merge({
         },   
 
         postprocessor: {
-            js: ['modwrapper', 'require-async-analyse']
+            js: ['mod-wrapper', 'require-async-analyse']
         },
 
         postpackager: ['pack', 'pack-dev']
