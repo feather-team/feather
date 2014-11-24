@@ -126,6 +126,7 @@ feather.config.merge({
             {
                 reg: /^\/static\/((?:.+?\/)*third\/.*)$/,
                 useStandard: false,
+                useParser: false,
                 useHash: false,
                 release: '${statics}/${project.ns}/$1',
                 isHtmlLike: false
