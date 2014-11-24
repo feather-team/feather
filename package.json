@@ -1,6 +1,6 @@
 {
   "name": "feather-plus",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
         "feather-postprocessor-inline-compress": "0.1.0",
         "feather-postprocessor-pagelet-analyse": "0.1.0",
         "feather-postprocessor-component-analyse": "0.1.0",
+        "feather-postprocessor-modwrapper": "0.1.0",
         "feather-postpackager-pack": "0.1.0",
         "feather-postpackager-pack-dev": "0.1.0"
     },
