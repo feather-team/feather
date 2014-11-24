@@ -1,6 +1,6 @@
 {
   "name": "feather-plus",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "a industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,8 @@
         "feather-postprocessor-pagelet-analyse": "0.1.0",
         "feather-postprocessor-component-analyse": "0.1.0",
         "feather-postprocessor-mod-wrapper": "0.1.0",
-        "feather-postpackager-pack": "0.1.4",
-        "feather-postpackager-pack-dev": "0.1.0"
+        "feather-postpackager-pack": "0.1.5",
+        "feather-postpackager-pack-dev": "0.1.1"
     },
   "readme": "ERROR: No README data found!"
 }
