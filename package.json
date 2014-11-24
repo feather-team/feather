@@ -1,6 +1,6 @@
 {
   "name": "feather-plus",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
         "fis": "^1.7.14",
         "commander": "1.3.2",
         "colors": "0.6.2",
+        "fis-parser-less": "0.1.1",
         "feather-postprocessor-inline-require": "0.1.0",
         "feather-postprocessor-require-async-analyse": "0.1.0",
         "feather-postprocessor-inline-sameresource": "0.1.0",
