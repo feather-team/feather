@@ -89,8 +89,6 @@ feather.config.merge({
     },
 
     roadmap : {
-        domain : '<?=$FEATHER_STATIC_DOMAIN?>',
-
         path : [
             {
                 reg: '/page/**.${template.suffix}',
@@ -129,7 +127,8 @@ feather.config.merge({
                 useParser: false,
                 useHash: false,
                 release: '${statics}/${project.ns}/$1',
-                isHtmlLike: false
+                isHtmlLike: false,
+                isThird: true
             },
             {
                 reg: /^\/static(\/js\/(?:.*\/)?mod\/.*)$/,
