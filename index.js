@@ -7,6 +7,7 @@ var feather = global.feather = module.exports = require('fis');
 feather.cli.name = 'feather';
 feather.cli.info = feather.util.readJSON(__dirname + '/package.json');
 feather.require.prefixes.unshift('feather');
+feather.cli.help.commands = ['release', 'install', 'server', 'init'];
 
 feather.cli.version = function(){        
     var string = feather.util.read(__dirname + '/vendor/icon', true);
@@ -26,7 +27,7 @@ feather.cli.run = function(argv){
     }else if(first[0] === '-'){
         old(argv);
     }else{
-        if(['release', 'server', 'install'].indexOf(argv[2]) == -1){
+        if(['release', 'server', 'install', 'init'].indexOf(argv[2]) == -1){
             feather.log.error('command error');
             return;
         }
@@ -41,6 +42,11 @@ feather.cli.run = function(argv){
 
         if(argv[2] == 'install'){
             argv.push.apply(argv, ['--repos', 'http://github.com/feather-ui']);
+            old(argv);
+            return;
+        }
+
+        if(argv[2] == 'init'){
             old(argv);
             return;
         }

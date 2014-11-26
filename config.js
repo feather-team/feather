@@ -3,7 +3,7 @@
 feather.config.merge({
     template: {
         dest: '/view',
-        suffix: 'tpl',
+        suffix: 'html',
         componentRules: [
             /*
             :nav => /component/nav/nav.tpl
@@ -68,7 +68,8 @@ feather.config.merge({
             ],
             charset: 'utf-8',
             map: {},
-            deps: {}
+            deps: {},
+            domain: ''
         }
     },
 
@@ -89,6 +90,8 @@ feather.config.merge({
     },
 
     roadmap : {
+        domain: '',
+
         path : [
             {
                 reg: '/page/**.${template.suffix}',
