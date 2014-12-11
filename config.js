@@ -86,7 +86,7 @@ feather.config.merge({
             js: ['mod-wrapper', 'require-async-analyse']
         },
 
-        postpackager: ['pack-before', 'pack', 'pack-after']
+        postpackager: ['map-before', 'map', 'map-after']
     },
 
     roadmap : {
