@@ -43,7 +43,7 @@ feather.config.merge({
         name: 'v'
     },
 
-    inlineMode: false,
+    staticMode: false,
 
     autoCombine: false,
 
