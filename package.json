@@ -1,6 +1,6 @@
 {
   "name": "feather-s",
-  "version": "0.1.34",
+  "version": "0.1.35",
   "description": "an industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "feather-postprocessor-pagelet-analyse": "0.1.2",
     "feather-postprocessor-component-analyse": "0.1.1",
     "feather-postprocessor-mod-wrapper": "0.1.1",
-    "feather-postpackager-map-before": "0.1.3",
+    "feather-postpackager-map-before": "0.1.4",
     "feather-postpackager-map": "0.1.6",
     "feather-postpackager-map-after": "0.1.10"
   }

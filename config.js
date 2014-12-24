@@ -59,7 +59,7 @@ feather.config.merge({
                 common/a:dialog/a.js => /static/js/common/a/mod/dialog/a.js
                 common/a.js => /static/js/common/a.js
                 */
-                [/^([^:]+)?\:((?:[^\/]+\/)*)((?:(?!\.js).)+?)(\.js)?$/, function(_0, _1, _2, _3, _4){
+                [/^([^:]+)?\:((?:[^\/]+\/)*)([^\.]+?)(\..+)?$/, function(_0, _1, _2, _3, _4){
                     return (_1 ? _1 + '/' : '') + 'mod/' + _2 + _3 + (_4 ? _4 : ('/' + _3 + '.js'));
                 }]
             ],
