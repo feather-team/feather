@@ -166,8 +166,7 @@ feather.config.merge({
     settings: {
         optimizer: {
             'htmlmin': {
-                removeComments: true,
-                collapseWhitespace: true
+                level : 'strip'
             }
         }
     }

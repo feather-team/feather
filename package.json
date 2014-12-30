@@ -1,6 +1,6 @@
 {
   "name": "feather-s",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "description": "an industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -28,10 +28,10 @@
     "feather-postprocessor-require-async-analyse": "0.1.1",
     "feather-postprocessor-inline-sameresource": "0.1.0",
     "feather-postprocessor-inline-compress": "0.1.3",
-    "feather-postprocessor-pagelet-analyse": "0.1.2",
+    "feather-postprocessor-pagelet-analyse": "0.1.3",
     "feather-postprocessor-component-analyse": "0.1.1",
     "feather-postprocessor-mod-wrapper": "0.1.1",
-    "feather-optimizer-htmlmin": "0.1.1",
+    "feather-optimizer-htmlmin": "0.1.2",
     "feather-postpackager-map-before": "0.1.5",
     "feather-postpackager-map": "0.1.6",
     "feather-postpackager-map-after": "0.1.11"
