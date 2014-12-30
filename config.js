@@ -161,9 +161,19 @@ feather.config.merge({
                 isCssLike: false
             }
         ]
+    },
+
+    settings: {
+        optimizer: {
+            'htmlmin': {
+                removeComments: true,
+                collapseWhitespace: true
+            }
+        }
     }
 });
 
 ['tpl', 'xhtml', 'phtml', 'html', 'php', 'htm', 'shtml'].forEach(function(type){
+    feather.config.set('modules.optimizer.' + type, 'htmlmin');
     feather.config.set('modules.postprocessor.' + type, ['inline-require', 'require-async-analyse', 'inline-sameresource', 'inline-compress', 'pagelet-analyse', 'component-analyse']);
 });
