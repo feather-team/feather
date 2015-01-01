@@ -32,7 +32,7 @@
     "feather-postprocessor-component-analyse": "0.1.2",
     "feather-postprocessor-mod-wrapper": "0.1.1",
     "feather-optimizer-htmlmin": "0.1.2",
-    "feather-postpackager-map-before": "0.1.8",
+    "feather-postpackager-map-before": "0.1.9",
     "feather-postpackager-map": "0.1.7",
     "feather-postpackager-map-after": "0.1.12"
   }
