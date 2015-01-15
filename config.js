@@ -35,7 +35,7 @@ feather.config.merge({
 
         modulename: '',
 
-        ns: ''
+        name: ''
     },
 
     md5Query: {
@@ -49,15 +49,15 @@ feather.config.merge({
 
     require: {
         config: {
-            baseurl: '/static/js',
+            baseurl: '/static',
             rules: [
                 /*
-                :dialog => /static/js/mod/dialog/dialog.js
-                common:dialog => /static/js/common/mod/dialog/dialog.js
-                common/a:dialog => /static/js/common/a/mod/dialog/dialog.js
-                common/a:dialog/a => /static/js/common/a/mod/dialog/a/a.js
-                common/a:dialog/a.js => /static/js/common/a/mod/dialog/a.js
-                common/a.js => /static/js/common/a.js
+                :dialog => /static/mod/dialog/dialog.js
+                common:dialog => /static/common/mod/dialog/dialog.js
+                common/a:dialog => /static/common/a/mod/dialog/dialog.js
+                common/a:dialog/a => /static/common/a/mod/dialog/a/a.js
+                common/a:dialog/a.js => /static/common/a/mod/dialog/a.js
+                common/a.js => /static/common/a.js
                 */
                 [/^([^:]+)?\:((?:[^\/]+\/)*)([^\.]+?)(\..+)?$/, function(_0, _1, _2, _3, _4){
                     return (_1 ? _1 + '/' : '') + 'mod/' + _2 + _3 + (_4 ? _4 : ('/' + _3 + '.js'));
@@ -91,31 +91,31 @@ feather.config.merge({
         path : [
             {
                 reg: '/page/**.${template.suffix}',
-                release: '${template.dest}/${project.ns}$&',
+                release: '${template.dest}/${project.name}/$&',
                 isHtmlLike: true
             },
             {
                 reg: '/component/**.${template.suffix}',
-                release: '${template.dest}/${project.ns}$&',
+                release: '${template.dest}/${project.name}/$&',
                 isHtmlLike: true,
                 isComponentLike: true
             },
             {
                 reg: /^\/component\/.*/,
-                release: '${statics}/${project.ns}/$&',
+                release: '${statics}/$&',
                 isComponentLike: true,
                 isHtmlLike: false
             },
             {
                 reg: '/pagelet/**.${template.suffix}',
-                release: '${template.dest}/${project.ns}$&',
+                release: '${template.dest}/${project.name}/$&',
                 isHtmlLike: true,
                 useMap: false,
                 isPageletLike: true
             },
             {
                 reg: /^\/pagelet\/.*/,
-                release: '${statics}/${project.ns}/$&',
+                release: '${statics}/$&',
                 isComponentLike: true,
                 isHtmlLike: false,
                 isPageletLike: true
@@ -125,19 +125,19 @@ feather.config.merge({
                 useStandard: false,
                 useParser: false,
                 useHash: false,
-                release: '${statics}/${project.ns}/$1',
+                release: '${statics}/$1',
                 isHtmlLike: false,
                 isThird: true
             },
             {
-                reg: /^\/static(\/js\/(?:.*\/)?mod\/.*)$/,
-                release: '${statics}/${project.ns}/$1',
+                reg: /^\/static(\/(?:.*\/)*mod\/.*)$/,
+                release: '${statics}/$1',
                 isMod: true,
                 isHtmlLike: false
             },
             {
                 reg : /^\/static(\/.*)$/,
-                release: '${statics}/${project.ns}/$1',
+                release: '${statics}/$1',
                 isHtmlLike: false
             },
             {
@@ -147,7 +147,7 @@ feather.config.merge({
             },
             {
                 reg: /^\/php\/template\/(.*)$/,
-                release: '${template.dest}/component/resource/$1',
+                release: '${template.dest}/${project.name}/component/resource/$1',
                 isHtmlLike: false
             },
             {
