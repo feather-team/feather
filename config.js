@@ -2,7 +2,6 @@
 
 feather.config.merge({
     template: {
-        dest: '/view',
         suffix: 'html',
         componentRules: [
             /*
@@ -91,31 +90,33 @@ feather.config.merge({
         path : [
             {
                 reg: '/page/**.${template.suffix}',
-                release: '${template.dest}/${project.name}/$&',
+                release: '/view/${project.name}/$&',
                 isHtmlLike: true
             },
             {
                 reg: '/component/**.${template.suffix}',
-                release: '${template.dest}/${project.name}/$&',
+                release: '/view/${project.name}/$&',
                 isHtmlLike: true,
                 isComponentLike: true
             },
             {
                 reg: /^\/component\/.*/,
-                release: '${statics}/$&',
+                release: '/static/${statics}/$&',
+                url: '${statics}/$&',
                 isComponentLike: true,
                 isHtmlLike: false
             },
             {
                 reg: '/pagelet/**.${template.suffix}',
-                release: '${template.dest}/${project.name}/$&',
+                release: '/view/${project.name}/$&',
                 isHtmlLike: true,
                 useMap: false,
                 isPageletLike: true
             },
             {
                 reg: /^\/pagelet\/.*/,
-                release: '${statics}/$&',
+                release: '/static/${statics}/$&',
+                url: '${statics}/$&',
                 isComponentLike: true,
                 isHtmlLike: false,
                 isPageletLike: true
@@ -125,19 +126,22 @@ feather.config.merge({
                 useStandard: false,
                 useParser: false,
                 useHash: false,
-                release: '${statics}/$1',
+                release: '/static/${statics}/$1',
+                url: '${statics}/$1',
                 isHtmlLike: false,
                 isThird: true
             },
             {
                 reg: /^\/static(\/(?:.*\/)*mod\/.*)$/,
-                release: '${statics}/$1',
+                release: '/static/${statics}/$1',
+                url: '${statics}/$1',
                 isMod: true,
                 isHtmlLike: false
             },
             {
                 reg : /^\/static(\/.*)$/,
-                release: '${statics}/$1',
+                release: '/static/${statics}/$1',
+                url: '${statics}/$1',
                 isHtmlLike: false
             },
             {
