@@ -46,6 +46,9 @@ feather.config.merge({
 
     autoCombine: false,
 
+    //CSS中的path将绝对路径转相对路径
+    cssA2R: false,
+
     require: {
         config: {
             baseurl: '/static',
@@ -90,12 +93,12 @@ feather.config.merge({
         path : [
             {
                 reg: '/page/**.${template.suffix}',
-                release: '/view/${project.name}/$&',
+                release: '/view/$&',
                 isHtmlLike: true
             },
             {
                 reg: '/component/**.${template.suffix}',
-                release: '/view/${project.name}/$&',
+                release: '/view/$&',
                 isHtmlLike: true,
                 isComponentLike: true
             },
@@ -108,7 +111,7 @@ feather.config.merge({
             },
             {
                 reg: '/pagelet/**.${template.suffix}',
-                release: '/view/${project.name}/$&',
+                release: '/view/$&',
                 isHtmlLike: true,
                 useMap: false,
                 isPageletLike: true
@@ -151,7 +154,7 @@ feather.config.merge({
             },
             {
                 reg: /^\/php\/template\/(.*)$/,
-                release: '${template.dest}/${project.name}/component/resource/$1',
+                release: '${template.dest}/component/resource/$1',
                 isHtmlLike: false
             },
             {
