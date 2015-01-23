@@ -66,6 +66,15 @@ feather.cli.run = function(argv){
                     if(!feather.util.isFile(options.file)){
                         feather.log.error('invalid feather config file path [' + options.file + ']');
                     }
+
+                    if(options.clean){
+                        var www = feather.project.getTempPath('www');
+
+                        'map php static test view'.split(' ').forEach(function(item){
+                            feather.util.del(www + '/' + item);
+                        });
+                        
+                    }
                 })
         );
 
