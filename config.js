@@ -47,7 +47,7 @@ feather.config.merge({
     autoCombine: false,
 
     //CSS中的path将绝对路径转相对路径
-    cssA2R: false,
+    cssA2R: true,
 
     require: {
         config: {
