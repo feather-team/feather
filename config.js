@@ -78,10 +78,14 @@ feather.config.merge({
     modules: {
         parser : {
             css: 'less'
+        },
+
+        preprocessor: {
+            js: ['standard-before']
         },   
 
         postprocessor: {
-            js: ['mod-wrapper', 'require-async-analyse']
+            js: ['standard-after', 'mod-wrapper', 'require-async-analyse']
         },
 
         postpackager: ['map-before', 'map', 'map-after']
@@ -181,5 +185,6 @@ feather.config.merge({
 
 ['tpl', 'xhtml', 'phtml', 'html', 'php', 'htm', 'shtml'].forEach(function(type){
     feather.config.set('modules.optimizer.' + type, 'htmlmin');
-    feather.config.set('modules.postprocessor.' + type, ['inline-require', 'require-async-analyse', 'inline-sameresource', 'inline-compress', 'pagelet-analyse', 'component-analyse']);
+    feather.config.set('modules.preprocessor.' + type, 'standard-before');
+    feather.config.set('modules.postprocessor.' + type, ['standard-after', 'inline-require', 'require-async-analyse', 'inline-sameresource', 'inline-compress', 'pagelet-analyse', 'component-analyse']);
 });

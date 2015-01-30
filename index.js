@@ -73,7 +73,6 @@ feather.cli.run = function(argv){
                         'map php static test view'.split(' ').forEach(function(item){
                             feather.util.del(www + '/' + item);
                         });
-                        
                     }
                 })
         );
