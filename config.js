@@ -185,5 +185,5 @@ feather.config.merge({
 ['tpl', 'xhtml', 'phtml', 'html', 'php', 'htm', 'shtml'].forEach(function(type){
     feather.config.set('modules.optimizer.' + type, 'htmlmin');
     feather.config.set('modules.preprocessor.' + type, 'standard-before');
-    feather.config.set('modules.postprocessor.' + type, ['standard-after', 'inline-require', 'inline-sameresource', 'pagelet-analyse', 'component-analyse', 'require-async-analyse', 'inline-compress']);
+    feather.config.set('modules.postprocessor.' + type, ['standard-after', 'pagelet-analyse', 'component-analyse', 'resource-analyse', 'require-async-analyse', 'inline-compress']);
 });

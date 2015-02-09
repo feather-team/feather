@@ -74,6 +74,8 @@ feather.cli.run = function(argv){
                             feather.util.del(www + '/' + item);
                         });
                     }
+
+                    feather.settings = options;
                 })
         );
 
