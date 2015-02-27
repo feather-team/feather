@@ -101,6 +101,12 @@ feather.config.merge({
                 isHtmlLike: true
             },
             {
+                reg: /^\/page\/.*/,
+                release: '/static/${statics}/$&',
+                url: '${statics}/$&',
+                isHtmlLike: false
+            },
+            {
                 reg: '/component/**.${template.suffix}',
                 release: '/view/$&',
                 isHtmlLike: true,
