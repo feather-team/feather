@@ -42,6 +42,8 @@ feather.config.merge({
         name: 'v'
     },
 
+    moduleLoader: true, 
+
     staticMode: false,
 
     autoCombine: false,
