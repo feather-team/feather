@@ -153,9 +153,19 @@ feather.config.merge({
                 isHtmlLike: false
             },
             {
-                reg : /^\/static(\/.*)$/,
+                reg: /^\/static(\/.*)$/,
                 release: '/static/${statics}/$1',
                 url: '${statics}/$1',
+                isHtmlLike: false
+            },
+            {
+                reg: /^\/plugins\/.*$/,
+                release: '/view/$&',
+                isHtmlLike: false
+            },
+            {
+                reg: /^\/map\/.*/,
+                release: '/view/$&',
                 isHtmlLike: false
             },
             {
