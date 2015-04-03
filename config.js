@@ -106,6 +106,7 @@ feather.config.merge({
                 reg: /^\/page\/.*/,
                 release: '/static/${statics}/$&',
                 url: '${statics}/$&',
+                useSprite: true,
                 isHtmlLike: false
             },
             {
@@ -118,6 +119,7 @@ feather.config.merge({
                 reg: /^\/component\/.*/,
                 release: '/static/${statics}/$&',
                 url: '${statics}/$&',
+                useSprite: true,
                 isComponentLike: true,
                 isHtmlLike: false
             },
@@ -131,6 +133,7 @@ feather.config.merge({
                 reg: /^\/pagelet\/.*/,
                 release: '/static/${statics}/$&',
                 url: '${statics}/$&',
+                useSprite: true,
                 isComponentLike: true,
                 isHtmlLike: false,
                 isPageletLike: true
@@ -149,6 +152,7 @@ feather.config.merge({
                 reg: /^\/static(\/(?:.*\/)*mod\/.*)$/,
                 release: '/static/${statics}/$1',
                 url: '${statics}/$1',
+                useSprite: true,
                 isMod: true,
                 isHtmlLike: false
             },
@@ -156,6 +160,7 @@ feather.config.merge({
                 reg: /^\/static(\/.*)$/,
                 release: '/static/${statics}/$1',
                 url: '${statics}/$1',
+                useSprite: true,
                 isHtmlLike: false
             },
             {
