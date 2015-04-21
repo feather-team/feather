@@ -42,8 +42,6 @@ feather.config.merge({
         name: 'v'
     },
 
-    moduleLoader: true, 
-
     staticMode: false,
 
     autoCombine: false,
@@ -52,6 +50,8 @@ feather.config.merge({
     cssA2R: true,
 
     require: {
+        use: true,
+        componentUseWraper: false,
         config: {
             baseurl: '/static',
             rules: [
@@ -114,6 +114,14 @@ feather.config.merge({
                 release: '/view/$&',
                 isHtmlLike: true,
                 isComponentLike: true
+            },
+            {
+                reg: /^\/component\/.*\.js/,
+                release: '/static/${statics}/$&',
+                url: '${statics}/$&',
+                isMod: true,
+                isComponentLike: true,
+                isHtmlLike: false
             },
             {
                 reg: /^\/component\/.*/,
