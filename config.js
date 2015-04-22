@@ -116,17 +116,10 @@ feather.config.merge({
                 isComponentLike: true
             },
             {
-                reg: /^\/component\/.*\.js/,
-                release: '/static/${statics}/$&',
-                url: '${statics}/$&',
-                isMod: true,
-                isComponentLike: true,
-                isHtmlLike: false
-            },
-            {
                 reg: /^\/component\/.*/,
                 release: '/static/${statics}/$&',
                 url: '${statics}/$&',
+                isMod: true,
                 useSprite: true,
                 isComponentLike: true,
                 isHtmlLike: false
@@ -142,6 +135,7 @@ feather.config.merge({
                 release: '/static/${statics}/$&',
                 url: '${statics}/$&',
                 useSprite: true,
+                isMod: true,
                 isComponentLike: true,
                 isHtmlLike: false,
                 isPageletLike: true
