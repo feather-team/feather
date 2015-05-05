@@ -94,7 +94,7 @@ feather.config.merge({
     },
 
     roadmap : {
-        domain: '',
+        domain: '<?=$FEATHER_STATIC_DOMAIN?>',
 
         path : [
             {
