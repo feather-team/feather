@@ -4,10 +4,10 @@ feather.console = require('./lib/console.js');
 var util = require('./lib/util.js');
 
 for(var method in util){
-	feather.util[method] = util[method];
+    feather.util[method] = util[method];
 }
 
-fis.util.upload = function(url, opt, data, content, subpath, callback){
+fis.util.upload = function(url, opt, data, content, subpath, callback, l){
     if(typeof content === 'string'){
         content = new Buffer(content, 'utf8');
     } else if(!(content instanceof  Buffer)){
@@ -39,6 +39,11 @@ fis.util.upload = function(url, opt, data, content, subpath, callback){
     opt.headers = {
         'Content-Type': 'multipart/form-data; boundary=' + boundary
     };
+
+    if(l){
+        opt.headers['Content-length'] = length;
+    }
+
     opt = fis.util.parseUrl(url, opt);
     var http = opt.protocol === 'https:' ? require('https') : require('http');
     var req = http.request(opt, function(res){
@@ -53,7 +58,11 @@ fis.util.upload = function(url, opt, data, content, subpath, callback){
                 if(status >= 200 && status < 300 || status === 304){
                     callback(null, body);
                 } else {
-                    callback(status);
+                    if(status == 411 && !l){
+                        fis.util.upload(url, opt, data, content, subpath, callback, true);
+                    }else{
+                        callback(status);
+                    }  
                 }
             })
             .on('error', function(err){
@@ -62,7 +71,11 @@ fis.util.upload = function(url, opt, data, content, subpath, callback){
     });
 
     req.on('error', function(err){
-        throw new Error('deploy error: ' + err.message);
+        if(!l){
+            fis.util.upload(url, opt, data, content, subpath, callback, true);
+        }else{
+            throw new Error('deploy error: ' + err.message);
+        }
     });
 
     collect.forEach(function(d){
