@@ -1,6 +1,8 @@
 'use strict';
 
 feather.config.merge({
+    comboDebug: false,
+    
     template: {
         suffix: 'html',
         componentRules: [
