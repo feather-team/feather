@@ -1,6 +1,6 @@
 {
   "name": "feather-s",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
         "industrialized framework"
     ],
   "dependencies": {
-    "fis": "1.7.14",
+    "fis": "1.9.19",
     "commander": "1.3.2",
     "colors": "0.6.2",
     "fis-parser-less": "0.1.1",
