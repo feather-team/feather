@@ -31,4 +31,4 @@ feather是基于fis开发的一套前端定制版工业化框架，专注于前�
 
 **更多文档详见[feather](http://feather-ui.github.io)**
 
-**[更新日志](./CHANGELOG.MD)**
+**[更新日志](./CHANGELOG.md)**
