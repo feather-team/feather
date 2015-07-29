@@ -1,6 +1,6 @@
 {
   "name": "feather-s",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "an industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
