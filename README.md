@@ -29,6 +29,6 @@ feather是基于fis开发的一套前端定制版工业化框架，专注于前�
 
 **注：feather对static目录下，任意third目录不做任何处理。**
 
-**更多文档详见[feather](http://feather-ui.github.io)**
+**更多文档详见[feather](http://feather-team.github.io)**
 
 **[更新日志](./CHANGELOG.md)**
