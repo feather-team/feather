@@ -1,7 +1,14 @@
 'use strict';
 
 feather.config.merge({
-    comboDebug: false,
+    /*
+    comboDebug: {
+        level: 0,
+        domain: '',
+        concatSameBaseUrl: false
+    }
+    */
+    comboDebug: {},
     
     template: {
         suffix: 'html',
