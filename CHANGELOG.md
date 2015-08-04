@@ -1,6 +1,10 @@
 feather-更新日志
 ====================
 
+###1.0.4 (2015/08/04)
+
+autoload-combo 支持只对目录相同文件进行合并(sameBaseUrl: true), 去除2次编译功能，支持自定义static position
+
 ###1.0.3 (2015/07/29)
 
 autoload-combo level支持，默认为0表示只合并零散资源，不合并已pkg资源；1表示合并所有资源
