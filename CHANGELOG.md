@@ -1,6 +1,10 @@
 feather-更新日志
 ====================
 
+###1.0.5 (2015/08/25)
+
+修复几率page调用component时无法加载其数据的bug
+
 ###1.0.4 (2015/08/04)
 
 autoload-combo 支持只对目录相同文件进行合并(sameBaseUrl: true), 去除2次编译功能，支持自定义static position
