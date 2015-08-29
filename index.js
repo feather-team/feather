@@ -7,7 +7,7 @@ var feather = global.feather = module.exports = require('fis');
 feather.cli.name = 'feather';
 feather.cli.info = feather.util.readJSON(__dirname + '/package.json');
 feather.require.prefixes.unshift('feather');
-feather.cli.help.commands = ['release', 'install', 'server', 'init'];
+feather.cli.help.commands = ['release', 'install', 'server', 'init', 'switch'];
 
 feather.cli.version = function(){        
     var string = feather.util.read(__dirname + '/vendor/icon', true);
@@ -27,7 +27,7 @@ feather.cli.run = function(argv){
     }else if(first[0] === '-'){
         old(argv);
     }else{
-        if(['release', 'server', 'install', 'init'].indexOf(argv[2]) == -1){
+        if(['release', 'server', 'install', 'init', 'switch'].indexOf(argv[2]) == -1){
             feather.log.error('command error');
             return;
         }
@@ -51,10 +51,25 @@ feather.cli.run = function(argv){
             return;
         }
 
+        if(argv[2] == 'switch'){
+            old(argv);
+            return;
+        }
+
         //register command
         var commander = feather.cli.commander = require('commander');
-        var cmd = feather.require('command', argv[2]);
-        
+        var cmd = feather.require('command', argv[2]), root = '';
+
+        for(var i = 3; i < argv.length; i++){
+            if(/-[\w]*r|--root/.test(argv[i]) && argv[i+1] && !/^-/.test(argv[i+1])){
+                var x = argv[i] == '-r' || argv[i] == '--root' ? '' : argv[i].replace(/r$/, '');
+
+                root = argv[i+1];
+                argv.splice(i, 2, x);
+                break;
+            }
+        }
+
         cmd.register(
             commander
                 .command(cmd.name || first)
@@ -70,7 +85,7 @@ feather.cli.run = function(argv){
                     if(options.clean){
                         var www = feather.project.getTempPath('www');
 
-                        'map php static test view'.split(' ').forEach(function(item){
+                        'proj static c_proj'.split(' ').forEach(function(item){
                             feather.util.del(www + '/' + item);
                         });
                     }
@@ -79,6 +94,11 @@ feather.cli.run = function(argv){
                 })
         );
 
+        if(root){
+            feather.config.set('__cwd', process.cwd());
+            process.chdir(root);
+        }
+        
         argv.push.apply(argv, ['-f', 'feather_conf.js']);
         commander.parse(argv);
     }

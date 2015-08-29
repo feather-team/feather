@@ -185,8 +185,13 @@ feather.config.merge({
                 isHtmlLike: false
             },
             {
-                reg: /(?:feather_(?:rewrite|compatible))\.php$/,
-                release: '/php/tmp/$&',
+                reg: /feather_rewrite\.php$/,
+                release: '/tmp/rewrite/${project.modulename}.php',
+                isHtmlLike: false
+            },
+            {
+                reg: /feather_compatible\.php$/,
+                release: '/tmp/$&',
                 isHtmlLike: false
             },
             {
