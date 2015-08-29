@@ -1,6 +1,6 @@
 {
   "name": "feather-s",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "an industrialized framework for frontend baesd on fis",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "colors": "0.6.2",
     "fis-parser-less": "0.1.1",
     "feather-command-init": "~0.1.3",
+    "feather-command-switch": "~0.1.0",
     "feather-preprocessor-standard-before": "~0.1.1",
     "feather-postprocessor-standard-after": "~0.1.2",
     "feather-postprocessor-require-async-analyse": "~0.1.6",
