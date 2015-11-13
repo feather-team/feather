@@ -88,6 +88,7 @@ feather.config.merge({
 
     modules: {
         parser : {
+            less: 'less',
             css: 'less'
         },
 
