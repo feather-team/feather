@@ -2,107 +2,74 @@
 
 require('colors');
 
-var feather = global.feather = module.exports = require('fis');
+global.feather = module.exports = require('fis3');
 
-feather.cli.name = 'feather';
-feather.cli.info = feather.util.readJSON(__dirname + '/package.json');
-feather.require.prefixes.unshift('feather');
-feather.cli.help.commands = ['release', 'install', 'server', 'init', 'switch'];
+//require cli.js overwrite fis-cli.js
+require('./cli.js');
 
-feather.cli.version = function(){        
-    var string = feather.util.read(__dirname + '/vendor/icon', true);
-    console.log(string.replace('{version}', ('Version: ' + feather.cli.info.version).bold.red));
-}
+//feather default config
+feather.config.merge({
+	project: {
+        fileType: {
+            text: 'phtml'
+        },
 
-var old = feather.cli.run;
+        name: '_default',
+        charset: 'utf-8',
+        modulename: '',
+        staticMode: false,
+        ignore: ['node_modules/**', 'output/**', '.git/**']
+    },
 
-//override run
-feather.cli.run = function(argv){
-    var first = argv[2];
+ 	template: {
+ 		suffix: 'html'
+ 	},
 
-    if(argv.length < 3 || first === '-h' ||  first === '--help'){
-        old(argv);
-    }else if(first === '-v' || first === '--version'){
-        old(argv);
-    }else if(first[0] === '-'){
-        old(argv);
-    }else{
-        if(['release', 'server', 'install', 'init', 'switch'].indexOf(argv[2]) == -1){
-            feather.log.error('command error');
-            return;
+    statics: '/static',
+
+    require: {
+    	use: true,
+    	defineWrapAll: false,
+    	config: {
+            baseurl: '/',
+            rules: [
+                /*
+                :dialog => /static/mod/dialog/dialog.js
+                common:dialog => /static/common/mod/dialog/dialog.js
+                common/a:dialog => /static/common/a/mod/dialog/dialog.js
+                common/a:dialog/a => /static/common/a/mod/dialog/a/a.js
+                common/a:dialog/a.js => /static/common/a/mod/dialog/a.js
+                common/a.js => /static/common/a.js
+                */
+                [/^([^:]+)?\:((?:[^\/]+\/)*)([^\.]+?)(\..+)?$/, function(_0, _1, _2, _3, _4){
+                    return (_1 ? _1 + '/' : '') + 'mod/' + _2 + _3 + (_4 ? _4 : ('/' + _3 + '.js'));
+                }],
+                [/\/[^\.]*$/, '$&.js']
+            ],
+            charset: 'utf-8',
+            map: {},
+            deps: {}
         }
+    },
 
-        if(argv[2] == 'server'){
-            var script = feather.project.getTempPath('www') + '/index.php';
-            !feather.util.isFile(script) && feather.util.copy(__dirname + '/vendor/index.php', script);
-
-            old(argv);
-            return;
-        }
-
-        if(argv[2] == 'install'){
-            argv.push.apply(argv, ['--repos', 'http://feather-team.github.io/package']);
-            old(argv);
-            return;
-        }
-
-        if(argv[2] == 'init'){
-            old(argv);
-            return;
-        }
-
-        if(argv[2] == 'switch'){
-            old(argv);
-            return;
-        }
-
-        //register command
-        var commander = feather.cli.commander = require('commander');
-        var cmd = feather.require('command', argv[2]), root = '';
-
-        for(var i = 3; i < argv.length; i++){
-            if(/-[\w]*r|--root/.test(argv[i]) && argv[i+1] && !/^-/.test(argv[i+1])){
-                var x = argv[i] == '-r' || argv[i] == '--root' ? '' : argv[i].replace(/r$/, '');
-
-                root = argv[i+1];
-                argv.splice(i, 2, x);
-                break;
-            }
-        }
-
-        cmd.register(
-            commander
-                .command(cmd.name || first)
-                .usage(cmd.usage)
-                .description(cmd.desc)
-                .action(function(){
-                    var options = arguments[arguments.length - 1];
-
-                    if(!feather.util.isFile(options.file)){
-                        feather.log.error('invalid feather config file path [' + options.file + ']');
-                    }
-
-                    if(options.clean){
-                        var www = feather.project.getTempPath('www');
-
-                        'proj static c_proj'.split(' ').forEach(function(item){
-                            feather.util.del(www + '/' + item);
-                        });
-                    }
-
-                    feather.settings = options;
-                })
-        );
-
-        if(root){
-            feather.config.set('__cwd', process.cwd());
-            process.chdir(root);
-        }
-        
-        argv.push.apply(argv, ['-f', 'feather_conf.js']);
-        commander.parse(argv);
+    server: {
+    	rewrite: 'index.php'
     }
-};
+});
 
-require('./extend.js');
-require('./config.js');
+feather.match('*.{less,css}', {
+	parser: feather.plugin('less'),
+	optimizer: feather.plugin('clean-css'),
+	rExt: '.css'
+});
+
+feather.match('/component/**', {
+	isMod: true
+});
+
+feather.match('/component/**/*.js', {
+	postprocessor: fis.plugin('jswrapper', {
+        type: 'commonjs'
+    })
+})
+
