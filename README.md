@@ -1,4 +1,4 @@
-[feather](http://feather-ui.github.io)
+[feather](http://feather-team.github.io/page/feather.html)
 ====================
 
 an industrialized framework for frontend baesd on fis
